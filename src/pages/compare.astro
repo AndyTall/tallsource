@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CompareTool from '../components/CompareTool.tsx';
+
+const slugsParam = Astro.url.searchParams.get('b') ?? '';
+const initialSlugs = slugsParam.split(',').filter(Boolean);
+---
+<BaseLayout
+  title="Compare Tall Clothing Brand Size Charts"
+  description="Compare size charts side by side for up to 4 tall clothing brands."
+>
+  <h1 class="mb-8 text-3xl font-bold">Compare brands</h1>
+  <CompareTool client:load initialSlugs={initialSlugs} />
+</BaseLayout>

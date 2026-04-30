@@ -16,6 +16,14 @@ export default function CompareTool({ initialSlugs }: { initialSlugs: string[] }
   }, []);
 
   useEffect(() => {
+    const urlSlugs = new URLSearchParams(window.location.search).get('b');
+    if (urlSlugs) {
+      const fromUrl = urlSlugs.split(',').filter(Boolean);
+      if (fromUrl.length > 0) setSelected(fromUrl);
+    }
+  }, []);
+
+  useEffect(() => {
     const url = new URL(window.location.href);
     if (selected.length > 0) {
       url.searchParams.set('b', selected.join(','));
