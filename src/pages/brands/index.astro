@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandCard from '../../components/BrandCard.astro';
+import { loadAllBrands } from '../../lib/brands';
+
+const brands = await loadAllBrands();
+---
+<BaseLayout
+  title="Tall and Big-and-Tall Clothing Brand Directory"
+  description={`Browse ${brands.length} brands offering tall and big-and-tall sizing, with standardized size charts in inches.`}
+>
+  <h1 class="mb-2 text-3xl font-bold">Brand directory</h1>
+  <p class="mb-8 text-slate-600">
+    {brands.length} brands offering tall and big-and-tall sizing, with size charts verified by Andy W.
+  </p>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {brands.map((brand) => <BrandCard brand={brand} />)}
+  </div>
+</BaseLayout>
