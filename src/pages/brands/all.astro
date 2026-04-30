@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandCard from '../../components/BrandCard.astro';
+import { loadAllBrands } from '../../lib/brands';
+
+const brands = await loadAllBrands();
+---
+<BaseLayout
+  title="All Tall Clothing Brands (Unfiltered)"
+  description="Complete unfiltered list of all tall and big-and-tall clothing brands in the TallSource directory."
+>
+  <h1 class="mb-8 text-3xl font-bold">All brands</h1>
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {brands.map((brand) => <BrandCard brand={brand} />)}
+  </div>
+</BaseLayout>

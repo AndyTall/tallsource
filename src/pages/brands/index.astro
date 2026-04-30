@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BrandCard from '../../components/BrandCard.astro';
+import BrandFilter from '../../components/BrandFilter.tsx';
 import { loadAllBrands } from '../../lib/brands';
 
 const brands = await loadAllBrands();
@@ -11,9 +11,13 @@ const brands = await loadAllBrands();
 >
   <h1 class="mb-2 text-3xl font-bold">Brand directory</h1>
   <p class="mb-8 text-slate-600">
-    {brands.length} brands offering tall and big-and-tall sizing, with size charts verified by Andy W.
+    {brands.length} brands offering tall and big-and-tall sizing, verified by Andy W.
   </p>
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {brands.map((brand) => <BrandCard brand={brand} />)}
-  </div>
+  <BrandFilter client:load />
+
+  <noscript>
+    <p class="mt-8 rounded bg-yellow-50 p-4 text-sm">
+      JavaScript is disabled. <a href="/brands/all" class="underline">View the unfiltered brand list</a>.
+    </p>
+  </noscript>
 </BaseLayout>
