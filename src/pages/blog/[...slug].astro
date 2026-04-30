@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+interface Props { post: CollectionEntry<'blog'>; }
+const { post } = Astro.props;
+const { Content } = await render(post);
+const pageUrl = new URL(`/blog/${post.id}`, Astro.site ?? 'https://tallsource.co').href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  datePublished: post.data.published.toISOString(),
+  dateModified: (post.data.updated ?? post.data.published).toISOString(),
+  author: { '@type': 'Person', name: post.data.author },
+  url: pageUrl,
+};
+---
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <article class="prose max-w-none">
+    <span class="text-xs uppercase tracking-wide text-slate-500">{post.data.type}</span>
+    <h1 class="mt-2">{post.data.title}</h1>
+    <p class="text-sm text-slate-500">
+      {post.data.published.toISOString().slice(0, 10)} · {post.data.author}
+    </p>
+    <Content />
+  </article>
+</BaseLayout>
