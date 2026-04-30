@@ -5,9 +5,12 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://tallsource.co',
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
   integrations: [react(), sitemap()],
 
   vite: {
