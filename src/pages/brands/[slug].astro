@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SizeChartTable from '../../components/SizeChartTable.astro';
+import { loadAllBrands } from '../../lib/brands';
+import { brandToJsonLd } from '../../lib/jsonld';
+
+export async function getStaticPaths() {
+  const brands = await loadAllBrands();
+  return brands.map((brand) => ({ params: { slug: brand.slug }, props: { brand } }));
+}
+
+const { brand } = Astro.props;
+const pageUrl = new URL(`/brands/${brand.slug}`, Astro.site ?? 'https://tallsource.co').href;
+const jsonLd = brandToJsonLd(brand, pageUrl);
+
+const summary = `${brand.name} is a ${brand.fit_styles.join('/')} clothing brand offering ${brand.categories.join(', ')}. Tall sizes: ${brand.tall_sizes_offered.join(', ') || 'none'}. ${brand.big_sizes_offered.length > 0 ? `Big sizes: ${brand.big_sizes_offered.join(', ')}.` : ''} Verified ${brand.verified.on}.`;
+---
+<BaseLayout
+  title={`${brand.name} — Tall Sizes & Size Chart`}
+  description={summary}
+  jsonLd={jsonLd}
+>
+  <article>
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold">{brand.name}</h1>
+      <p class="mt-2 text-slate-600">{summary}</p>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs">
+        {brand.fit_styles.map((s) => (
+          <span class="rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-900">{s}</span>
+        ))}
+        {brand.styles.map((s) => (
+          <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{s}</span>
+        ))}
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-700">{brand.price_tier}</span>
+      </div>
+      <p class="mt-4">
+        <a href={brand.website} class="text-blue-700 underline" target="_blank" rel="noopener">
+          Visit {brand.name} →
+        </a>
+      </p>
+    </header>
+
+    <SizeChartTable charts={brand.size_charts} />
+
+    {brand.fit_notes && (
+      <section class="mb-8 rounded border-l-4 border-blue-400 bg-blue-50 p-4">
+        <h3 class="mb-2 font-semibold">Fit notes</h3>
+        <p class="text-sm">{brand.fit_notes}</p>
+      </section>
+    )}
+
+    <section class="mt-12 rounded border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+      <p>
+        <strong>Verified by {brand.verified.by} on {brand.verified.on}.</strong>{' '}
+        Size chart sourced from{' '}
+        <a href={brand.verified.source_url} class="underline" target="_blank" rel="noopener">
+          {brand.verified.source_url}
+        </a>.
+      </p>
+      <p class="mt-2">
+        See our <a href="/methodology" class="underline">methodology</a> for how we verify size charts.
+      </p>
+    </section>
+  </article>
+</BaseLayout>
