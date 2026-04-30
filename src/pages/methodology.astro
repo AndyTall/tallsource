@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'TallSource Methodology',
+  description: 'How TallSource sources and verifies size chart data for tall clothing brands.',
+  mainEntity: {
+    '@type': 'CreativeWork',
+    name: 'Size Chart Verification Methodology',
+    author: { '@type': 'Person', name: 'Andy W.' },
+  },
+};
+---
+<BaseLayout
+  title="Methodology — How We Verify Size Charts"
+  description="How TallSource sources, verifies, and updates size chart data for every brand in the directory."
+  jsonLd={jsonLd}
+>
+  <article class="prose max-w-none">
+    <h1>How we verify size charts</h1>
+    <p class="lead">
+      TallSource exists to be the most trusted single reference for tall men's clothing sizing.
+      Trust is earned by being transparent about exactly how the data here is sourced and checked.
+    </p>
+
+    <h2>Where the size charts come from</h2>
+    <p>
+      Every size chart on TallSource is sourced directly from the brand's own published size chart page.
+      The exact URL we sourced from is listed at the bottom of every brand page (look for "Size chart sourced from...").
+    </p>
+
+    <h2>How verification works</h2>
+    <p>
+      For each brand we add, the workflow is:
+    </p>
+    <ol>
+      <li>The brand's official size chart page is fetched.</li>
+      <li>Measurements are extracted into a standard schema (chest, sleeve, neck for tops; waist, inseam for bottoms — all in inches).</li>
+      <li>A human (Andy W.) reviews the extracted data side-by-side against the source page and corrects any discrepancies.</li>
+      <li>The verified entry is published with a "Verified by Andy W. on [date]" stamp.</li>
+    </ol>
+
+    <h2>Re-verification cadence</h2>
+    <p>
+      Brand sizing changes over time. Every brand is re-checked on a recurring schedule:
+    </p>
+    <ul>
+      <li><strong>Within 6 months:</strong> recently verified, displayed with a "✓ Verified" badge.</li>
+      <li><strong>6–12 months:</strong> still considered current.</li>
+      <li><strong>Over 12 months:</strong> displayed with a softer "Last verified [date] — changes possible" note.</li>
+    </ul>
+
+    <h2>What we don't do</h2>
+    <ul>
+      <li>We don't publish unverified data.</li>
+      <li>We don't sell anything directly. Every brand link goes to the brand's own site.</li>
+      <li>We don't accept payment from brands in exchange for inclusion or favorable treatment.</li>
+    </ul>
+
+    <h2>Found an error?</h2>
+    <p>
+      If a size chart on TallSource doesn't match the brand's current page, please <a href="/about">let us know</a> — we'll re-verify and correct it.
+    </p>
+  </article>
+</BaseLayout>
