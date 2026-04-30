@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import SizeChartTable from '../../components/SizeChartTable.astro';
 import { loadAllBrands } from '../../lib/brands';
 import { brandToJsonLd } from '../../lib/jsonld';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const brands = await loadAllBrands();
@@ -12,6 +13,11 @@ export async function getStaticPaths() {
 const { brand } = Astro.props;
 const pageUrl = new URL(`/brands/${brand.slug}`, Astro.site ?? 'https://tallsource.co').href;
 const jsonLd = brandToJsonLd(brand, pageUrl);
+
+const announcements = (await getCollection('blog'))
+  .filter((p) => p.data.type === 'announcement' && p.data.brands.includes(brand.slug))
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
+  .slice(0, 3);
 
 const summary = `${brand.name} is a ${brand.fit_styles.join('/')} clothing brand offering ${brand.categories.join(', ')}. Tall sizes: ${brand.tall_sizes_offered.join(', ') || 'none'}. ${brand.big_sizes_offered.length > 0 ? `Big sizes: ${brand.big_sizes_offered.join(', ')}.` : ''} Verified ${brand.verified.on}.`;
 ---
@@ -47,6 +53,24 @@ const summary = `${brand.name} is a ${brand.fit_styles.join('/')} clothing brand
       <section class="mb-8 rounded border-l-4 border-blue-400 bg-blue-50 p-4">
         <h3 class="mb-2 font-semibold">Fit notes</h3>
         <p class="text-sm">{brand.fit_notes}</p>
+      </section>
+    )}
+
+    {announcements.length > 0 && (
+      <section class="mb-8">
+        <h3 class="mb-3 text-lg font-semibold">Latest from {brand.name}</h3>
+        <ul class="space-y-3">
+          {announcements.map((a) => (
+            <li>
+              <a href={`/blog/${a.id}`} class="text-blue-700 underline">
+                {a.data.title}
+              </a>
+              <span class="ml-2 text-xs text-slate-500">
+                {a.data.published.toISOString().slice(0, 10)}
+              </span>
+            </li>
+          ))}
+        </ul>
       </section>
     )}
 
