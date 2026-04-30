@@ -64,8 +64,23 @@ describe('brandSchema', () => {
   });
 
   it('allows missing optional fit_notes and height_range_in', () => {
-    const { ...minimal } = validBrand;
+    const withOptionals = {
+      ...validBrand,
+      fit_notes: 'some notes',
+      height_range_in: { min: 70, max: 80 },
+    };
+    const { fit_notes: _f, height_range_in: _h, ...minimal } = withOptionals;
     expect(() => brandSchema.parse(minimal)).not.toThrow();
+  });
+
+  it('accepts fit_notes and height_range_in when present', () => {
+    expect(() =>
+      brandSchema.parse({
+        ...validBrand,
+        fit_notes: 'cut slim through chest',
+        height_range_in: { min: 74, max: 80 },
+      })
+    ).not.toThrow();
   });
 
   it('rejects when verified.by is empty', () => {
