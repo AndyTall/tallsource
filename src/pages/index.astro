@@ -1,17 +1,46 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandCard from '../components/BrandCard.astro';
+import { loadAllBrands } from '../lib/brands';
 
+const brands = await loadAllBrands();
+const featured = brands.slice(0, 6);
 ---
+<BaseLayout
+  title="TallSource"
+  description="The directory of tall and big-and-tall men's clothing brands, with standardized size charts in inches."
+>
+  <section class="py-12 text-center">
+    <h1 class="text-4xl font-bold tracking-tight md:text-5xl">
+      Find clothes that actually fit.
+    </h1>
+    <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+      A directory of {brands.length} brands offering tall and big-and-tall sizing,
+      with standardized size charts in inches — verified by Andy W.
+    </p>
+    <div class="mt-8 flex justify-center gap-4">
+      <a href="/brands" class="rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700">
+        Browse brands
+      </a>
+      <a href="/compare" class="rounded-lg border border-slate-300 px-6 py-3 font-medium hover:bg-slate-50">
+        Compare size charts
+      </a>
+    </div>
+  </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <section class="mt-12">
+    <h2 class="mb-6 text-2xl font-bold">Featured brands</h2>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {featured.map((brand) => <BrandCard brand={brand} />)}
+    </div>
+  </section>
+
+  <section class="mt-16 rounded-lg bg-slate-50 p-8 text-center">
+    <h2 class="text-2xl font-bold">Why TallSource?</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-slate-700">
+      Brand size charts live on different pages, in different formats, with different units.
+      We've put them in one place, in inches, with the same fields for every brand —
+      so you can actually compare. <a href="/methodology" class="underline">See how we verify</a>.
+    </p>
+  </section>
+</BaseLayout>
