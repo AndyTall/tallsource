@@ -88,4 +88,30 @@ describe('brandSchema', () => {
       brandSchema.parse({ ...validBrand, verified: { ...validBrand.verified, by: '' } })
     ).toThrow();
   });
+
+  it('accepts BIG sizes (2X, 3X, etc.) in size_charts.tops', () => {
+    const withBigSize = {
+      ...validBrand,
+      size_charts: {
+        tops: [
+          { size: 'LT', chest: [42, 44], sleeve: [36.5, 37], neck: [16, 16.5] },
+          { size: '2X', chest: [50, 53], sleeve: [35.5, 36], neck: [18, 18.5] },
+          { size: '6X', chest: [67, 70], sleeve: [37, 37.5], neck: [22, 22.5] },
+        ],
+        bottoms: [],
+      },
+    };
+    expect(() => brandSchema.parse(withBigSize)).not.toThrow();
+  });
+
+  it('still rejects unknown size labels in size_charts.tops', () => {
+    const bad = {
+      ...validBrand,
+      size_charts: {
+        tops: [{ size: 'BLAH', chest: [42, 44], sleeve: [36, 37], neck: [16, 17] }],
+        bottoms: [],
+      },
+    };
+    expect(() => brandSchema.parse(bad)).toThrow();
+  });
 });

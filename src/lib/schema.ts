@@ -17,13 +17,14 @@ const ACTIVITIES = [
 ] as const;
 const TALL_SIZES = ['MT', 'LT', 'XLT', 'XXLT', '3XLT', '4XLT', '5XLT'] as const;
 const BIG_SIZES = ['2X', '3X', '4X', '5X', '6X', '7X', '8X'] as const;
+const TOP_SIZE_LABELS = [...TALL_SIZES, ...BIG_SIZES] as const;
 
 const range = z
   .tuple([z.number(), z.number()])
   .refine(([min, max]) => min <= max, { message: 'min must be <= max' });
 
 const topSizeRow = z.object({
-  size: z.enum(TALL_SIZES),
+  size: z.enum(TOP_SIZE_LABELS),
   chest: range,
   sleeve: range,
   neck: range,
