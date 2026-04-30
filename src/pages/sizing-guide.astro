@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'What does MT, LT, XLT, XXLT mean?',
+    a: 'These are tall sizing labels: MT (Medium Tall), LT (Large Tall), XLT (Extra Large Tall), XXLT (2X Tall), 3XLT, 4XLT. Tall sizes are cut longer through the body and sleeves than regular sizes — typically 2–3 inches longer.',
+  },
+  {
+    q: 'How do I measure my chest?',
+    a: 'Wrap a soft tape measure around the fullest part of your chest, under the arms, with arms relaxed at your sides. Keep the tape level and snug but not tight.',
+  },
+  {
+    q: 'How do I measure my sleeve length?',
+    a: 'With your arm slightly bent, measure from the center back of your neck, over your shoulder, and down to your wrist. This is the standard sleeve measurement used by most brands.',
+  },
+  {
+    q: 'How do I measure my inseam?',
+    a: 'Measure from the crotch seam down the inside of the leg to the desired pant length (typically the bottom of your ankle bone for a standard cuff).',
+  },
+  {
+    q: 'What is the difference between Tall and Big-and-Tall?',
+    a: 'Tall sizing adds length without adding width — designed for tall, slim-to-average-build men. Big-and-Tall sizing adds both length and width — designed for tall men who also need additional room through the chest, waist, and shoulders.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<BaseLayout
+  title="Tall Men's Sizing Guide"
+  description="How to measure yourself and understand tall clothing sizes (MT, LT, XLT, XXLT, 3XLT)."
+  jsonLd={jsonLd}
+>
+  <article class="prose max-w-none">
+    <h1>Tall men's sizing guide</h1>
+    <p class="lead">A practical reference for tall sizing labels, body measurements, and how to choose between Tall and Big-and-Tall cuts.</p>
+
+    {faqs.map((f) => (
+      <section class="mt-8">
+        <h2 class="text-xl font-semibold">{f.q}</h2>
+        <p class="mt-2 text-slate-700">{f.a}</p>
+      </section>
+    ))}
+  </article>
+</BaseLayout>
