@@ -27,7 +27,7 @@ const topSizeRow = z.object({
   size: z.enum(TOP_SIZE_LABELS),
   chest: range,
   sleeve: range,
-  neck: range,
+  neck: range.optional(),
   shoulder: range.optional(),
   body_length: range.optional(),
 });

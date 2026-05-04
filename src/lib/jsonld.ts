@@ -33,35 +33,38 @@ export function brandToJsonLd(brand: Brand, pageUrl: string): LdNode[] {
   });
 
   for (const row of brand.size_charts.tops) {
+    const measurements: LdNode[] = [
+      {
+        '@type': 'QuantitativeValue',
+        name: 'Chest',
+        minValue: row.chest[0],
+        maxValue: row.chest[1],
+        unitCode: 'INH',
+      },
+      {
+        '@type': 'QuantitativeValue',
+        name: 'Sleeve',
+        minValue: row.sleeve[0],
+        maxValue: row.sleeve[1],
+        unitCode: 'INH',
+      },
+    ];
+    if (row.neck) {
+      measurements.push({
+        '@type': 'QuantitativeValue',
+        name: 'Neck',
+        minValue: row.neck[0],
+        maxValue: row.neck[1],
+        unitCode: 'INH',
+      });
+    }
     nodes.push({
       '@context': 'https://schema.org',
       '@type': 'SizeSpecification',
       name: `${brand.name} ${row.size}`,
       sizeSystem: 'https://schema.org/WearableSizeSystemUS',
       sizeGroup: sizeGroupFor(row.size),
-      suggestedMeasurement: [
-        {
-          '@type': 'QuantitativeValue',
-          name: 'Chest',
-          minValue: row.chest[0],
-          maxValue: row.chest[1],
-          unitCode: 'INH',
-        },
-        {
-          '@type': 'QuantitativeValue',
-          name: 'Sleeve',
-          minValue: row.sleeve[0],
-          maxValue: row.sleeve[1],
-          unitCode: 'INH',
-        },
-        {
-          '@type': 'QuantitativeValue',
-          name: 'Neck',
-          minValue: row.neck[0],
-          maxValue: row.neck[1],
-          unitCode: 'INH',
-        },
-      ],
+      suggestedMeasurement: measurements,
     });
   }
 

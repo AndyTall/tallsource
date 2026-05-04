@@ -114,4 +114,31 @@ describe('brandSchema', () => {
     };
     expect(() => brandSchema.parse(bad)).toThrow();
   });
+
+  it('accepts size rows without neck (casual brands)', () => {
+    const noNeck = {
+      ...validBrand,
+      size_charts: {
+        tops: [
+          { size: 'LT', chest: [42, 44], sleeve: [36, 37] },  // no neck
+        ],
+        bottoms: [],
+      },
+    };
+    expect(() => brandSchema.parse(noNeck)).not.toThrow();
+  });
+
+  it('accepts size rows with neck and without neck mixed', () => {
+    const mixed = {
+      ...validBrand,
+      size_charts: {
+        tops: [
+          { size: 'LT', chest: [42, 44], sleeve: [36, 37], neck: [16, 16.5] },
+          { size: 'XLT', chest: [46, 48], sleeve: [37, 37.5] },  // no neck
+        ],
+        bottoms: [],
+      },
+    };
+    expect(() => brandSchema.parse(mixed)).not.toThrow();
+  });
 });

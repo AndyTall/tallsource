@@ -58,4 +58,21 @@ describe('brandToJsonLd', () => {
     const sizes = ld.filter((n) => n['@type'] === 'SizeSpecification');
     expect(sizes[0].sizeGroup).toBe('Big');
   });
+
+  it('omits Neck QuantitativeValue when neck is undefined', () => {
+    const noNeckBrand: Brand = {
+      ...brand,
+      size_charts: {
+        tops: [{ size: 'LT', chest: [42, 44], sleeve: [36, 37] }],
+        bottoms: [],
+      },
+    };
+    const ld = brandToJsonLd(noNeckBrand, 'https://tallsource.co/brands/test');
+    const sizes = ld.filter((n) => n['@type'] === 'SizeSpecification');
+    expect(sizes.length).toBe(1);
+    const measurements = sizes[0].suggestedMeasurement as Array<{ name: string }>;
+    expect(measurements.find((m) => m.name === 'Chest')).toBeDefined();
+    expect(measurements.find((m) => m.name === 'Sleeve')).toBeDefined();
+    expect(measurements.find((m) => m.name === 'Neck')).toBeUndefined();
+  });
 });

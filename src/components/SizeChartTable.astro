@@ -8,6 +8,7 @@ interface Props {
 const { charts } = Astro.props;
 const formatRange = (r: [number, number]) =>
   r[0] === r[1] ? `${r[0]}"` : `${r[0]}"–${r[1]}"`;
+const showNeck = charts.tops.some((row) => row.neck !== undefined);
 ---
 {charts.tops.length > 0 && (
   <section class="mb-8">
@@ -19,7 +20,7 @@ const formatRange = (r: [number, number]) =>
             <th class="px-3 py-2 text-left">Size</th>
             <th class="px-3 py-2 text-left">Chest</th>
             <th class="px-3 py-2 text-left">Sleeve</th>
-            <th class="px-3 py-2 text-left">Neck</th>
+            {showNeck && (<th class="px-3 py-2 text-left">Neck</th>)}
           </tr>
         </thead>
         <tbody>
@@ -28,7 +29,7 @@ const formatRange = (r: [number, number]) =>
               <td class="px-3 py-2 font-medium">{row.size}</td>
               <td class="px-3 py-2">{formatRange(row.chest)}</td>
               <td class="px-3 py-2">{formatRange(row.sleeve)}</td>
-              <td class="px-3 py-2">{formatRange(row.neck)}</td>
+              {showNeck && (<td class="px-3 py-2">{row.neck ? formatRange(row.neck) : '—'}</td>)}
             </tr>
           ))}
         </tbody>
