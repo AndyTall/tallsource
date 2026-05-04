@@ -48,13 +48,65 @@ size_charts:
       chest: [54, 56]
       sleeve: [37, 38]
       neck: [19, 19.5]
-  bottoms: []
+  bottoms:
+    # 34" inseam — waists 30 to 46 (2" steps)
+    - size: 30x34
+      waist: 30
+      inseam: 34
+    - size: 32x34
+      waist: 32
+      inseam: 34
+    - size: 34x34
+      waist: 34
+      inseam: 34
+    - size: 36x34
+      waist: 36
+      inseam: 34
+    - size: 38x34
+      waist: 38
+      inseam: 34
+    - size: 40x34
+      waist: 40
+      inseam: 34
+    - size: 42x34
+      waist: 42
+      inseam: 34
+    - size: 44x34
+      waist: 44
+      inseam: 34
+    - size: 46x34
+      waist: 46
+      inseam: 34
+    # 36" inseam — waists 30 to 44 (2" steps)
+    - size: 30x36
+      waist: 30
+      inseam: 36
+    - size: 32x36
+      waist: 32
+      inseam: 36
+    - size: 34x36
+      waist: 34
+      inseam: 36
+    - size: 36x36
+      waist: 36
+      inseam: 36
+    - size: 38x36
+      waist: 38
+      inseam: 36
+    - size: 40x36
+      waist: 40
+      inseam: 36
+    - size: 42x36
+      waist: 42
+      inseam: 36
+    - size: 44x36
+      waist: 44
+      inseam: 36
 fit_notes: |
   Classic American outdoor/heritage casualwear from Maine since 1912. Tall
   garments run 2 inches longer in the body and 1 inch longer at the sleeves
-  than regular sizes (per L.L.Bean's published sizing guide). Pants are sold
-  in waist x inseam combinations with long-inseam options available; the pant
-  size chart is not yet documented here.
+  than regular sizes (per L.L.Bean's published sizing guide). Pants offered
+  in 34" and 36" inseams across waists 30 to 46 (varies by inseam).
 returns_summary: 1-year satisfaction guarantee, free returns
 ships_to:
   - US
