@@ -1,0 +1,67 @@
+slug: ll-bean
+name: L.L.Bean
+website: https://www.llbean.com
+price_tier: $$
+fit_styles:
+  - standard-tall
+  - big-and-tall
+styles:
+  - casual
+  - outdoor
+  - heritage
+categories:
+  - shirts
+  - outerwear
+  - pants
+  - activewear
+  - underwear
+activities:
+  - hiking
+  - hunting
+  - fishing
+tall_sizes_offered:
+  - MT
+  - LT
+  - XLT
+  - XXLT
+  - 3XLT
+big_sizes_offered: []
+size_charts:
+  tops:
+    - size: MT
+      chest: [38, 40]
+      sleeve: [34, 35]
+      neck: [15, 15.5]
+    - size: LT
+      chest: [42, 44]
+      sleeve: [35, 36]
+      neck: [16, 16.5]
+    - size: XLT
+      chest: [46, 48]
+      sleeve: [36, 37]
+      neck: [17, 17.5]
+    - size: XXLT
+      chest: [50, 52]
+      sleeve: [37, 38]
+      neck: [18, 18.5]
+    - size: 3XLT
+      chest: [54, 56]
+      sleeve: [37, 38]
+      neck: [19, 19.5]
+  bottoms: []
+fit_notes: |
+  Classic American outdoor/heritage casualwear from Maine since 1912. Tall
+  garments run 2 inches longer in the body and 1 inch longer at the sleeves
+  than regular sizes (per L.L.Bean's published sizing guide). Pants are sold
+  in waist x inseam combinations with long-inseam options available; the pant
+  size chart is not yet documented here.
+returns_summary: 1-year satisfaction guarantee, free returns
+ships_to:
+  - US
+  - CA
+verified:
+  by: Andy W.
+  on: 2026-05-04
+  source_url: https://www.llbean.com/llb/shop/518113?page=sizing-charts
+  last_human_review: 2026-05-04
+last_updated: 2026-05-04
