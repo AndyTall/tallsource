@@ -1,0 +1,115 @@
+slug: brooks-brothers
+name: Brooks Brothers
+website: https://www.brooksbrothers.com
+price_tier: $$$
+fit_styles:
+  - standard-tall
+  - big-and-tall
+styles:
+  - preppy
+  - formal
+  - dress
+  - heritage
+categories:
+  - shirts
+activities: []
+tall_sizes_offered: []
+big_sizes_offered: []
+size_charts:
+  tops: []
+  bottoms: []
+  dress_shirts:
+    # Neck 13 — tall sleeves 35-38
+    - { size: 13x35, neck: 13, sleeve: 35 }
+    - { size: 13x36, neck: 13, sleeve: 36 }
+    - { size: 13x37, neck: 13, sleeve: 37 }
+    - { size: 13x38, neck: 13, sleeve: 38 }
+    # Neck 13.5
+    - { size: 13.5x35, neck: 13.5, sleeve: 35 }
+    - { size: 13.5x36, neck: 13.5, sleeve: 36 }
+    - { size: 13.5x37, neck: 13.5, sleeve: 37 }
+    - { size: 13.5x38, neck: 13.5, sleeve: 38 }
+    # Neck 14
+    - { size: 14x35, neck: 14, sleeve: 35 }
+    - { size: 14x36, neck: 14, sleeve: 36 }
+    - { size: 14x37, neck: 14, sleeve: 37 }
+    - { size: 14x38, neck: 14, sleeve: 38 }
+    # Neck 14.5
+    - { size: 14.5x35, neck: 14.5, sleeve: 35 }
+    - { size: 14.5x36, neck: 14.5, sleeve: 36 }
+    - { size: 14.5x37, neck: 14.5, sleeve: 37 }
+    - { size: 14.5x38, neck: 14.5, sleeve: 38 }
+    # Neck 15
+    - { size: 15x35, neck: 15, sleeve: 35 }
+    - { size: 15x36, neck: 15, sleeve: 36 }
+    - { size: 15x37, neck: 15, sleeve: 37 }
+    - { size: 15x38, neck: 15, sleeve: 38 }
+    # Neck 15.5
+    - { size: 15.5x35, neck: 15.5, sleeve: 35 }
+    - { size: 15.5x36, neck: 15.5, sleeve: 36 }
+    - { size: 15.5x37, neck: 15.5, sleeve: 37 }
+    - { size: 15.5x38, neck: 15.5, sleeve: 38 }
+    # Neck 16
+    - { size: 16x35, neck: 16, sleeve: 35 }
+    - { size: 16x36, neck: 16, sleeve: 36 }
+    - { size: 16x37, neck: 16, sleeve: 37 }
+    - { size: 16x38, neck: 16, sleeve: 38 }
+    # Neck 16.5
+    - { size: 16.5x35, neck: 16.5, sleeve: 35 }
+    - { size: 16.5x36, neck: 16.5, sleeve: 36 }
+    - { size: 16.5x37, neck: 16.5, sleeve: 37 }
+    - { size: 16.5x38, neck: 16.5, sleeve: 38 }
+    # Neck 17
+    - { size: 17x35, neck: 17, sleeve: 35 }
+    - { size: 17x36, neck: 17, sleeve: 36 }
+    - { size: 17x37, neck: 17, sleeve: 37 }
+    - { size: 17x38, neck: 17, sleeve: 38 }
+    # Neck 17.5
+    - { size: 17.5x35, neck: 17.5, sleeve: 35 }
+    - { size: 17.5x36, neck: 17.5, sleeve: 36 }
+    - { size: 17.5x37, neck: 17.5, sleeve: 37 }
+    - { size: 17.5x38, neck: 17.5, sleeve: 38 }
+    # Neck 18 — adds 39
+    - { size: 18x35, neck: 18, sleeve: 35 }
+    - { size: 18x36, neck: 18, sleeve: 36 }
+    - { size: 18x37, neck: 18, sleeve: 37 }
+    - { size: 18x38, neck: 18, sleeve: 38 }
+    - { size: 18x39, neck: 18, sleeve: 39 }
+    # Neck 18.5
+    - { size: 18.5x35, neck: 18.5, sleeve: 35 }
+    - { size: 18.5x36, neck: 18.5, sleeve: 36 }
+    - { size: 18.5x37, neck: 18.5, sleeve: 37 }
+    - { size: 18.5x38, neck: 18.5, sleeve: 38 }
+    - { size: 18.5x39, neck: 18.5, sleeve: 39 }
+    # Neck 19 — has 39 but not 38
+    - { size: 19x35, neck: 19, sleeve: 35 }
+    - { size: 19x36, neck: 19, sleeve: 36 }
+    - { size: 19x37, neck: 19, sleeve: 37 }
+    - { size: 19x39, neck: 19, sleeve: 39 }
+    # Neck 19.5
+    - { size: 19.5x35, neck: 19.5, sleeve: 35 }
+    - { size: 19.5x36, neck: 19.5, sleeve: 36 }
+    - { size: 19.5x37, neck: 19.5, sleeve: 37 }
+    - { size: 19.5x38, neck: 19.5, sleeve: 38 }
+    # Neck 20 — limited to 36 and 37
+    - { size: 20x36, neck: 20, sleeve: 36 }
+    - { size: 20x37, neck: 20, sleeve: 37 }
+fit_notes: |
+  America's iconic preppy/formal menswear house since 1818. Brooks Brothers
+  publishes the most comprehensive tall dress shirt matrix on the market —
+  necks 13" to 20" paired with tall sleeve lengths 35"–39". Some sizes are
+  sold as paired sleeve groups (e.g., "36/37") which TallSource resolves to
+  the upper end of the pair. Three fit cuts available across most sizes:
+  Slim, Regular, and Traditional (Traditional is the most generous through
+  the body and arms). Big & Tall sizing covers neck 18"+ with the longest
+  reach extending to 39" sleeves at neck 18"–18.5".
+returns_summary: 30 days, free returns
+ships_to:
+  - US
+  - CA
+verified:
+  by: Andy W.
+  on: 2026-05-04
+  source_url: https://www.brooksbrothers.com/sizeguide?cid=men-dress-shirts
+  last_human_review: 2026-05-04
+last_updated: 2026-05-04
