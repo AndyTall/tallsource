@@ -1,0 +1,61 @@
+slug: fjallraven
+name: Fjällräven
+website: https://www.fjallraven.com
+price_tier: $$$
+fit_styles:
+  - standard-tall
+styles:
+  - outdoor
+  - heritage
+categories:
+  - outerwear
+activities:
+  - hiking
+tall_sizes_offered:
+  - L
+  - XL
+  - XXL
+  - 3XL
+big_sizes_offered: []
+size_charts:
+  tops:
+    # Men's Jackets & Tops, Regular Fit (Fjällräven's longer-cut traditional pattern).
+    # Per the >34" sleeve threshold, L through 3XL qualify as tall-cut.
+    # XS/S/M have 32.7"-33.9" arms and are excluded.
+    - size: L
+      chest: [40.9, 40.9]
+      sleeve: [34.4, 34.4]
+    - size: XL
+      chest: [43.3, 43.3]
+      sleeve: [35, 35]
+    - size: XXL
+      chest: [45.7, 45.7]
+      sleeve: [35.6, 35.6]
+    - size: 3XL
+      chest: [48, 48]
+      sleeve: [36.2, 36.2]
+  bottoms: []
+fit_notes: |
+  Swedish heritage outdoor brand (founded 1960) — Greenland Jacket, anorak
+  parkas, G-1000 fabric pieces. Fjällräven offers TWO fits in men's jackets
+  and tops: "Regular Fit" (the longer-cut traditional pattern shown in this
+  chart, with arm lengths up to 36.2") and a newer "New Fit" with shorter
+  sleeves (L=34.3", XL=34.6", XXL=34.6", 3XL=35.0"). Most Fjällräven men's
+  outerwear is cut in the Regular Fit; check the product page on
+  fjallraven.com to confirm which fit any specific item uses. The brand
+  itself does NOT use Tall labels — these regular S/M/L/XL labels run
+  longer than typical regular cuts, which is why the brand is recommended
+  for tall guys (per Reddit's r/tallfashionadvice). Fjällräven labels the
+  largest size "XXXL" on their site; TallSource normalizes to "3XL" for
+  filter consistency.
+returns_summary: 30 days, free returns
+ships_to:
+  - US
+  - CA
+  - EU
+verified:
+  by: Andy W.
+  on: 2026-05-04
+  source_url: https://www.fjallraven.com/us/en-us/customer-service/size-guides/
+  last_human_review: 2026-05-04
+last_updated: 2026-05-04
