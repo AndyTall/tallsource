@@ -1,0 +1,113 @@
+slug: ralph-lauren
+name: Ralph Lauren
+website: https://www.ralphlauren.com
+price_tier: $$$
+fit_styles:
+  - standard-tall
+  - big-and-tall
+styles:
+  - preppy
+  - casual
+  - formal
+  - heritage
+categories:
+  - shirts
+  - outerwear
+  - pants
+activities: []
+tall_sizes_offered:
+  - LT
+  - XLT
+  - XXLT
+  - 3XLT
+  - 4XLT
+big_sizes_offered: []
+size_charts:
+  tops:
+    - size: LT
+      chest: [42, 44]
+      sleeve: [36.5, 36.5]
+      neck: [16, 16.5]
+    - size: XLT
+      chest: [46, 48]
+      sleeve: [37.5, 37.5]
+      neck: [17, 17.5]
+    - size: XXLT
+      chest: [50, 52]
+      sleeve: [38.5, 38.5]
+      neck: [18, 18.5]
+    - size: 3XLT
+      chest: [54, 56]
+      sleeve: [39.5, 39.5]
+      neck: [19, 19.5]
+    - size: 4XLT
+      chest: [58, 60]
+      sleeve: [40.5, 41]
+      neck: [20, 20.5]
+  bottoms:
+    # Ralph Lauren Big & Tall pants chart — waist and inseam selected
+    # independently. Per our >=34" inseam rule, only 34L/36L/38L qualify;
+    # 30L and 32L (regular inseams) are excluded. 12 waists x 3 tall inseams
+    # = 36 tall pant combinations.
+    # 34" inseam
+    - { size: 36x34, waist: 36, inseam: 34 }
+    - { size: 38x34, waist: 38, inseam: 34 }
+    - { size: 40x34, waist: 40, inseam: 34 }
+    - { size: 42x34, waist: 42, inseam: 34 }
+    - { size: 44x34, waist: 44, inseam: 34 }
+    - { size: 46x34, waist: 46, inseam: 34 }
+    - { size: 48x34, waist: 48, inseam: 34 }
+    - { size: 50x34, waist: 50, inseam: 34 }
+    - { size: 52x34, waist: 52, inseam: 34 }
+    - { size: 54x34, waist: 54, inseam: 34 }
+    - { size: 56x34, waist: 56, inseam: 34 }
+    - { size: 58x34, waist: 58, inseam: 34 }
+    # 36" inseam
+    - { size: 36x36, waist: 36, inseam: 36 }
+    - { size: 38x36, waist: 38, inseam: 36 }
+    - { size: 40x36, waist: 40, inseam: 36 }
+    - { size: 42x36, waist: 42, inseam: 36 }
+    - { size: 44x36, waist: 44, inseam: 36 }
+    - { size: 46x36, waist: 46, inseam: 36 }
+    - { size: 48x36, waist: 48, inseam: 36 }
+    - { size: 50x36, waist: 50, inseam: 36 }
+    - { size: 52x36, waist: 52, inseam: 36 }
+    - { size: 54x36, waist: 54, inseam: 36 }
+    - { size: 56x36, waist: 56, inseam: 36 }
+    - { size: 58x36, waist: 58, inseam: 36 }
+    # 38" inseam
+    - { size: 36x38, waist: 36, inseam: 38 }
+    - { size: 38x38, waist: 38, inseam: 38 }
+    - { size: 40x38, waist: 40, inseam: 38 }
+    - { size: 42x38, waist: 42, inseam: 38 }
+    - { size: 44x38, waist: 44, inseam: 38 }
+    - { size: 46x38, waist: 46, inseam: 38 }
+    - { size: 48x38, waist: 48, inseam: 38 }
+    - { size: 50x38, waist: 50, inseam: 38 }
+    - { size: 52x38, waist: 52, inseam: 38 }
+    - { size: 54x38, waist: 54, inseam: 38 }
+    - { size: 56x38, waist: 56, inseam: 38 }
+    - { size: 58x38, waist: 58, inseam: 38 }
+fit_notes: |
+  American iconic preppy menswear house since 1967 (Polo / Purple Label /
+  Double RL family). Tall sizing covers Tall L through Tall 4XL (chest 42"-
+  60", sleeves 36.5"-41"). Ralph Lauren does NOT offer Medium Tall — their
+  tall line starts at Large Tall. The brand also runs a separate Big line
+  (Big 1X-6X, shorter sleeves than the corresponding Tall) which is excluded
+  here per TallSource's tall-cut-only rule. Sizes labeled "2L", "3L", "4L"
+  on some products are equivalent to Tall 2XL, 3XL, 4XL respectively.
+  Notable for running roomier than J.Crew Tall — per Reddit, an RL Tall L
+  may be too baggy for someone who fits a J.Crew Tall L. Big & Tall pants
+  offer waists 36" through 58" with inseam options 30L/32L/34L/36L/38L;
+  only 34L+ qualify as tall (regular inseams 30L/32L excluded from this
+  chart per the tall pants threshold rule).
+returns_summary: 60 days, free returns
+ships_to:
+  - US
+  - CA
+verified:
+  by: Andy W.
+  on: 2026-05-04
+  source_url: https://www.ralphlauren.com/big-and-tall-size-guide/mens_big_and_tall.html
+  last_human_review: 2026-05-04
+last_updated: 2026-05-04
