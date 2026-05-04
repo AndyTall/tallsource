@@ -68,5 +68,39 @@ export function brandToJsonLd(brand: Brand, pageUrl: string): LdNode[] {
     });
   }
 
+  for (const row of brand.size_charts.dress_shirts) {
+    const measurements: LdNode[] = [
+      {
+        '@type': 'QuantitativeValue',
+        name: 'Neck',
+        value: row.neck,
+        unitCode: 'INH',
+      },
+      {
+        '@type': 'QuantitativeValue',
+        name: 'Sleeve',
+        value: row.sleeve,
+        unitCode: 'INH',
+      },
+    ];
+    if (row.chest) {
+      measurements.push({
+        '@type': 'QuantitativeValue',
+        name: 'Chest',
+        minValue: row.chest[0],
+        maxValue: row.chest[1],
+        unitCode: 'INH',
+      });
+    }
+    nodes.push({
+      '@context': 'https://schema.org',
+      '@type': 'SizeSpecification',
+      name: `${brand.name} Dress Shirt ${row.size}`,
+      sizeSystem: 'https://schema.org/WearableSizeSystemUS',
+      sizeGroup: 'Tall',
+      suggestedMeasurement: measurements,
+    });
+  }
+
   return nodes;
 }

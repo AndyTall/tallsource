@@ -16,6 +16,7 @@ const brand: Brand = {
   size_charts: {
     tops: [{ size: 'LT', chest: [42, 44], sleeve: [36, 37], neck: [16, 16.5] }],
     bottoms: [],
+    dress_shirts: [],
   },
   ships_to: ['US'],
   verified: {
@@ -52,6 +53,7 @@ describe('brandToJsonLd', () => {
           { size: '2X' as const, chest: [50, 53] as [number, number], sleeve: [35, 36] as [number, number], neck: [18, 18.5] as [number, number] },
         ],
         bottoms: [],
+        dress_shirts: [],
       },
     };
     const ld = brandToJsonLd(withBig, 'https://tallsource.co/brands/test');
@@ -65,6 +67,7 @@ describe('brandToJsonLd', () => {
       size_charts: {
         tops: [{ size: 'LT', chest: [42, 44], sleeve: [36, 37] }],
         bottoms: [],
+        dress_shirts: [],
       },
     };
     const ld = brandToJsonLd(noNeckBrand, 'https://tallsource.co/brands/test');
@@ -74,5 +77,26 @@ describe('brandToJsonLd', () => {
     expect(measurements.find((m) => m.name === 'Chest')).toBeDefined();
     expect(measurements.find((m) => m.name === 'Sleeve')).toBeDefined();
     expect(measurements.find((m) => m.name === 'Neck')).toBeUndefined();
+  });
+
+  it('emits SizeSpecification node per dress shirt row', () => {
+    const dressBrand: Brand = {
+      ...brand,
+      size_charts: {
+        tops: [],
+        bottoms: [],
+        dress_shirts: [
+          { size: '16x35', neck: 16, sleeve: 35 },
+          { size: '17.5x36', neck: 17.5, sleeve: 36 },
+        ],
+      },
+    };
+    const ld = brandToJsonLd(dressBrand, 'https://tallsource.co/brands/test');
+    const sizes = ld.filter((n) => n['@type'] === 'SizeSpecification');
+    expect(sizes.length).toBe(2);
+    // Each should have neck and sleeve as point values (not ranges)
+    const measurements = sizes[0].suggestedMeasurement as Array<{ name: string; value?: number; minValue?: number }>;
+    expect(measurements.find((m) => m.name === 'Neck')).toBeDefined();
+    expect(measurements.find((m) => m.name === 'Sleeve')).toBeDefined();
   });
 });

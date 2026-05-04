@@ -141,4 +141,37 @@ describe('brandSchema', () => {
     };
     expect(() => brandSchema.parse(mixed)).not.toThrow();
   });
+
+  it('accepts dress_shirts entries with neck/sleeve numeric and optional chest', () => {
+    const withDressShirts = {
+      ...validBrand,
+      size_charts: {
+        tops: [],
+        bottoms: [],
+        dress_shirts: [
+          { size: '16x35', neck: 16, sleeve: 35 },
+          { size: '17.5x36', neck: 17.5, sleeve: 36, chest: [44, 46] },
+        ],
+      },
+    };
+    expect(() => brandSchema.parse(withDressShirts)).not.toThrow();
+  });
+
+  it('rejects dress_shirt with non-numeric neck', () => {
+    const bad = {
+      ...validBrand,
+      size_charts: {
+        tops: [],
+        bottoms: [],
+        dress_shirts: [{ size: '16x35', neck: 'large', sleeve: 35 }],
+      },
+    };
+    expect(() => brandSchema.parse(bad)).toThrow();
+  });
+
+  it('defaults dress_shirts to empty array when omitted', () => {
+    // validBrand already omits dress_shirts; ensure it parses without
+    const result = brandSchema.parse(validBrand);
+    expect(result.size_charts.dress_shirts).toEqual([]);
+  });
 });

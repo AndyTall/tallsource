@@ -38,6 +38,32 @@ const showNeck = charts.tops.some((row) => row.neck !== undefined);
   </section>
 )}
 
+{charts.dress_shirts && charts.dress_shirts.length > 0 && (
+  <section class="mb-8">
+    <h3 class="mb-3 text-lg font-semibold">Dress shirts (inches)</h3>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-sm">
+        <thead>
+          <tr class="border-b-2 border-slate-300 bg-slate-50">
+            <th class="px-3 py-2 text-left">Size</th>
+            <th class="px-3 py-2 text-left">Neck</th>
+            <th class="px-3 py-2 text-left">Sleeve</th>
+          </tr>
+        </thead>
+        <tbody>
+          {charts.dress_shirts.map((row) => (
+            <tr class="border-b border-slate-200">
+              <td class="px-3 py-2 font-medium">{row.size}</td>
+              <td class="px-3 py-2">{row.neck}"</td>
+              <td class="px-3 py-2">{row.sleeve}"</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}
+
 {charts.bottoms.length > 0 && (
   <section class="mb-8">
     <h3 class="mb-3 text-lg font-semibold">Bottoms (inches)</h3>

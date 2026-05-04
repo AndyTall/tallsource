@@ -39,6 +39,13 @@ const bottomSizeRow = z.object({
   hip: z.number().optional(),
 });
 
+const dressShirtRow = z.object({
+  size: z.string(),       // e.g., "16x35", "17.5x36"
+  neck: z.number(),       // numeric inches
+  sleeve: z.number(),     // numeric inches
+  chest: range.optional(),  // optional [min, max]
+});
+
 const dateString = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'must be YYYY-MM-DD');
 
 export const brandSchema = z.object({
@@ -58,6 +65,7 @@ export const brandSchema = z.object({
   size_charts: z.object({
     tops: z.array(topSizeRow).default([]),
     bottoms: z.array(bottomSizeRow).default([]),
+    dress_shirts: z.array(dressShirtRow).default([]),
   }),
   fit_notes: z.string().optional(),
   returns_summary: z.string().optional(),
