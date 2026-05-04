@@ -190,4 +190,20 @@ describe('brandSchema', () => {
     };
     expect(() => brandSchema.parse(usingExtended)).not.toThrow();
   });
+
+  it('accepts regular size labels (S, M, L, XL, XXL) for long-cut brands', () => {
+    const longCutBrand = {
+      ...validBrand,
+      tall_sizes_offered: ['M', 'L', 'XL', 'XXL'],  // brand uses regular labels
+      size_charts: {
+        tops: [
+          { size: 'M', chest: [38, 40], sleeve: [35, 35.5], neck: [15, 15.5] },
+          { size: 'L', chest: [42, 44], sleeve: [36, 36.5], neck: [16, 16.5] },
+          { size: 'XL', chest: [46, 48], sleeve: [37, 37.5], neck: [17, 17.5] },
+        ],
+        bottoms: [],
+      },
+    };
+    expect(() => brandSchema.parse(longCutBrand)).not.toThrow();
+  });
 });

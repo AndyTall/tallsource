@@ -61,6 +61,20 @@ describe('brandToJsonLd', () => {
     expect(sizes[0].sizeGroup).toBe('Big');
   });
 
+  it('uses sizeGroup "Regular" for regular sizes (long-cut brands)', () => {
+    const longCut: Brand = {
+      ...brand,
+      size_charts: {
+        tops: [{ size: 'L', chest: [42, 44], sleeve: [36, 36.5], neck: [16, 16.5] }],
+        bottoms: [],
+        dress_shirts: [],
+      },
+    };
+    const ld = brandToJsonLd(longCut, 'https://tallsource.co/brands/test');
+    const sizes = ld.filter((n) => n['@type'] === 'SizeSpecification');
+    expect(sizes[0].sizeGroup).toBe('Regular');
+  });
+
   it('omits Neck QuantitativeValue when neck is undefined', () => {
     const noNeckBrand: Brand = {
       ...brand,

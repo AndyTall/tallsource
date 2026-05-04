@@ -3,6 +3,7 @@ import { applyFilter, type FilterState } from '../lib/filter';
 import type { SearchIndexEntry } from '../lib/search-index';
 
 const FIT_STYLES = ['slim-tall', 'standard-tall', 'big-and-tall'];
+const REGULAR_SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
 const TALL_SIZES = ['ST', 'SXT', 'MT', 'MXT', 'LT', 'LXT', 'XLT', 'XLXT', 'XXLT', '2XLT', '2XLXT', '3XLT', '3XLXT', '4XLT', '5XLT'];
 const CATEGORIES = ['shirts', 'pants', 'suits', 'outerwear', 'activewear', 'underwear'];
 const PRICE_TIERS = ['$', '$$', '$$$'];
@@ -39,7 +40,13 @@ export default function BrandFilter() {
           onToggle={(v) => setState((s) => ({ ...s, fit_styles: toggle(s.fit_styles, v) }))}
         />
         <FilterGroup
-          label="Tall sizes offered"
+          label="Regular sizes (long-cut brands)"
+          options={REGULAR_SIZES}
+          selected={state.tall_sizes}
+          onToggle={(v) => setState((s) => ({ ...s, tall_sizes: toggle(s.tall_sizes, v) }))}
+        />
+        <FilterGroup
+          label="Tall sizes"
           options={TALL_SIZES}
           selected={state.tall_sizes}
           onToggle={(v) => setState((s) => ({ ...s, tall_sizes: toggle(s.tall_sizes, v) }))}

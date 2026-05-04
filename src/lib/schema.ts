@@ -26,7 +26,11 @@ const TALL_SIZES = [
   '5XLT',
 ] as const;
 const BIG_SIZES = ['2X', '3X', '4X', '5X', '6X', '7X', '8X'] as const;
-const TOP_SIZE_LABELS = [...TALL_SIZES, ...BIG_SIZES] as const;
+// Regular men's size labels — accepted for long-cut brands (Relwen, Fjällräven, Filson,
+// Mission Workshop, Flint and Tinder) that cut their regular sizes long enough to qualify
+// as tall (sleeve >34" on size large) without using explicit Tall labels.
+const REGULAR_SIZES = ['S', 'M', 'L', 'XL', 'XXL', '3XL'] as const;
+const TOP_SIZE_LABELS = [...REGULAR_SIZES, ...TALL_SIZES, ...BIG_SIZES] as const;
 
 const range = z
   .tuple([z.number(), z.number()])
@@ -69,7 +73,9 @@ export const brandSchema = z.object({
     .optional(),
   categories: z.array(z.enum(CATEGORIES)).min(1),
   activities: z.array(z.enum(ACTIVITIES)).default([]),
-  tall_sizes_offered: z.array(z.enum(TALL_SIZES)).default([]),
+  // Accepts both Tall labels (LT, XLT, etc.) and regular men's size labels (S, M, L, XL, XXL, 3XL).
+  // Regular labels are valid for long-cut brands whose regular sizing meets tall criteria.
+  tall_sizes_offered: z.array(z.enum([...REGULAR_SIZES, ...TALL_SIZES])).default([]),
   big_sizes_offered: z.array(z.enum(BIG_SIZES)).default([]),
   size_charts: z.object({
     tops: z.array(topSizeRow).default([]),
@@ -96,3 +102,4 @@ export const CATEGORY_VOCABULARY = CATEGORIES;
 export const ACTIVITY_VOCABULARY = ACTIVITIES;
 export const TALL_SIZE_VOCABULARY = TALL_SIZES;
 export const BIG_SIZE_VOCABULARY = BIG_SIZES;
+export const REGULAR_SIZE_VOCABULARY = REGULAR_SIZES;

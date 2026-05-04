@@ -1,14 +1,16 @@
 import type { Brand } from './schema';
-import { TALL_SIZE_VOCABULARY, BIG_SIZE_VOCABULARY } from './schema';
+import { TALL_SIZE_VOCABULARY, BIG_SIZE_VOCABULARY, REGULAR_SIZE_VOCABULARY } from './schema';
 
 type LdNode = Record<string, unknown>;
 
 const TALL_SET = new Set<string>(TALL_SIZE_VOCABULARY);
 const BIG_SET = new Set<string>(BIG_SIZE_VOCABULARY);
+const REGULAR_SET = new Set<string>(REGULAR_SIZE_VOCABULARY);
 
-function sizeGroupFor(size: string): 'Tall' | 'Big' {
+function sizeGroupFor(size: string): 'Tall' | 'Big' | 'Regular' {
   if (TALL_SET.has(size)) return 'Tall';
   if (BIG_SET.has(size)) return 'Big';
+  if (REGULAR_SET.has(size)) return 'Regular';
   return 'Tall';
 }
 
