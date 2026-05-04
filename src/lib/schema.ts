@@ -15,7 +15,16 @@ const ACTIVITIES = [
   'running', 'hiking', 'cycling', 'fishing', 'hunting',
   'motorsport', 'watersports', 'golf', 'climbing', 'skiing',
 ] as const;
-const TALL_SIZES = ['MT', 'LT', 'XLT', 'XXLT', '3XLT', '4XLT', '5XLT'] as const;
+const TALL_SIZES = [
+  'ST', 'SXT',
+  'MT', 'MXT',
+  'LT', 'LXT',
+  'XLT', 'XLXT',
+  'XXLT', '2XLT', '2XLXT',
+  '3XLT', '3XLXT',
+  '4XLT',
+  '5XLT',
+] as const;
 const BIG_SIZES = ['2X', '3X', '4X', '5X', '6X', '7X', '8X'] as const;
 const TOP_SIZE_LABELS = [...TALL_SIZES, ...BIG_SIZES] as const;
 

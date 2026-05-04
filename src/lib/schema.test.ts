@@ -174,4 +174,20 @@ describe('brandSchema', () => {
     const result = brandSchema.parse(validBrand);
     expect(result.size_charts.dress_shirts).toEqual([]);
   });
+
+  it('accepts extended tall size labels (ST, MXT, 2XLT, 2XLXT)', () => {
+    const usingExtended = {
+      ...validBrand,
+      tall_sizes_offered: ['ST', 'MT', 'MXT', 'LT', 'LXT', '2XLT'],
+      size_charts: {
+        tops: [
+          { size: 'ST', chest: [38, 40], sleeve: [37, 37.5], neck: [15, 15.5] },
+          { size: 'MXT', chest: [42, 43], sleeve: [40, 40], neck: [15, 15.5] },
+          { size: '2XLXT', chest: [54, 54], sleeve: [41.5, 41.5], neck: [18, 18.5] },
+        ],
+        bottoms: [],
+      },
+    };
+    expect(() => brandSchema.parse(usingExtended)).not.toThrow();
+  });
 });

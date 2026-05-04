@@ -1,0 +1,132 @@
+slug: american-tall
+name: American Tall
+website: https://americantall.com
+price_tier: $$
+fit_styles:
+  - slim-tall
+  - standard-tall
+styles:
+  - casual
+  - athleisure
+  - minimalist
+categories:
+  - shirts
+  - pants
+  - outerwear
+  - activewear
+activities: []
+tall_sizes_offered:
+  - ST
+  - MT
+  - MXT
+  - LT
+  - LXT
+  - XLT
+  - XLXT
+  - 2XLT
+  - 2XLXT
+  - 3XLT
+big_sizes_offered: []
+size_charts:
+  tops:
+    # American Tall's Hoodies/Sweaters chart — most comprehensive top-size chart
+    - size: ST
+      chest: [40, 40]
+      sleeve: [37.5, 37.5]
+      neck: [14.5, 15]
+    - size: MT
+      chest: [43, 43]
+      sleeve: [38, 38]
+      neck: [15, 15.5]
+    - size: LT
+      chest: [47, 47]
+      sleeve: [38.5, 38.5]
+      neck: [16, 16.5]
+    - size: XLT
+      chest: [50, 50]
+      sleeve: [39, 39]
+      neck: [17, 17.5]
+    - size: 2XLT
+      chest: [54, 54]
+      sleeve: [39.5, 39.5]
+      neck: [18, 18.5]
+    - size: 3XLT
+      chest: [57, 57]
+      sleeve: [40, 40]
+      neck: [19, 19.5]
+    - size: MXT
+      chest: [43, 43]
+      sleeve: [40, 40]
+      neck: [15, 15.5]
+    - size: LXT
+      chest: [47, 47]
+      sleeve: [40.5, 40.5]
+      neck: [16, 16.5]
+    - size: XLXT
+      chest: [50, 50]
+      sleeve: [41, 41]
+      neck: [17, 17.5]
+    - size: 2XLXT
+      chest: [54, 54]
+      sleeve: [41.5, 41.5]
+      neck: [18, 18.5]
+  bottoms:
+    # Pants matrix — all combinations have inseam >=34" (qualifies as tall per our rule)
+    # Waist 30
+    - { size: 30x36, waist: 30, inseam: 36 }
+    # Waist 32
+    - { size: 32x36, waist: 32, inseam: 36 }
+    - { size: 32x38, waist: 32, inseam: 38 }
+    # Waist 34
+    - { size: 34x34, waist: 34, inseam: 34 }
+    - { size: 34x36, waist: 34, inseam: 36 }
+    - { size: 34x38, waist: 34, inseam: 38 }
+    - { size: 34x40, waist: 34, inseam: 40 }
+    # Waist 36
+    - { size: 36x34, waist: 36, inseam: 34 }
+    - { size: 36x36, waist: 36, inseam: 36 }
+    - { size: 36x38, waist: 36, inseam: 38 }
+    - { size: 36x40, waist: 36, inseam: 40 }
+    # Waist 38
+    - { size: 38x34, waist: 38, inseam: 34 }
+    - { size: 38x36, waist: 38, inseam: 36 }
+    - { size: 38x38, waist: 38, inseam: 38 }
+    - { size: 38x40, waist: 38, inseam: 40 }
+    # Waist 40
+    - { size: 40x36, waist: 40, inseam: 36 }
+    - { size: 40x38, waist: 40, inseam: 38 }
+    - { size: 40x40, waist: 40, inseam: 40 }
+    # Waist 42
+    - { size: 42x36, waist: 42, inseam: 36 }
+    - { size: 42x38, waist: 42, inseam: 38 }
+  dress_shirts:
+    # American Tall's formal dress shirt chart
+    - { size: ST, neck: 15, sleeve: 37.5, chest: [39, 39] }
+    - { size: MT, neck: 15.5, sleeve: 38, chest: [43, 43] }
+    - { size: MXT, neck: 15.5, sleeve: 40, chest: [43, 43] }
+    - { size: LT, neck: 16.5, sleeve: 38.5, chest: [47, 47] }
+    - { size: LXT, neck: 16.5, sleeve: 40.5, chest: [47, 47] }
+    - { size: XLT, neck: 17.5, sleeve: 39, chest: [50, 50] }
+    - { size: XLXT, neck: 17.5, sleeve: 41, chest: [50, 50] }
+    - { size: 2XLT, neck: 18.5, sleeve: 39.5, chest: [54, 54] }
+    - { size: 2XLXT, neck: 18.5, sleeve: 41.5, chest: [54, 54] }
+    - { size: 3XLT, neck: 19.75, sleeve: 39.5, chest: [58, 58] }
+fit_notes: |
+  Canadian tall-only specialist designed for men 6'1"–7'1". Two fit variants:
+  Tall (T) for 6'1"–6'5" with sleeves 37.5"–40"; Extra Tall (XT) for 6'5"+
+  with sleeves 39.5"–41.5" and longer back length. Top size charts (hoodies,
+  tees, polos, sweaters) vary slightly across product lines — values shown
+  here are from the hoodies/sweaters chart, the most comprehensive of their
+  catalog. American Tall measures true to spec: their pants waist may run
+  slightly smaller than vanity-sized brands. Dress shirts use casual labels
+  (MT, LT, etc.) instead of neck x sleeve format.
+returns_summary: 60 days, free returns within Canada and US
+ships_to:
+  - US
+  - CA
+verified:
+  by: Andy W.
+  on: 2026-05-04
+  source_url: https://americantall.com/pages/size-chart-plain-text
+  last_human_review: 2026-05-04
+last_updated: 2026-05-04
